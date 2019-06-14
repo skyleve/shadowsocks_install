@@ -6,7 +6,6 @@ export PATH
 #   Description: Install Shadowsocks-libev server for Debian/Ubuntu #
 #   Author: Teddysun <i@teddysun.com>                               #
 #   Thanks: @madeye <https://github.com/madeye>                     #
-#   Intro:  https://teddysun.com/358.html                           #
 #===================================================================#
 
 # Current folder
@@ -83,11 +82,11 @@ get_char(){
 }
 
 get_latest_version(){
-    ver=$(wget --no-check-certificate -qO- https://api.github.com/repos/shadowsocks/shadowsocks-libev/releases/latest | grep 'tag_name' | cut -d\" -f4)
+    ver=$(wget --no-check-certificate -qO- https://api.github.com/repos/skyleve/shadowsocks-libev/releases/latest | grep 'tag_name' | cut -d\" -f4)
     [ -z ${ver} ] && echo "Error: Get shadowsocks-libev latest version failed" && exit 1
     shadowsocks_libev_ver="shadowsocks-libev-$(echo ${ver} | sed -e 's/^[a-zA-Z]//g')"
     download_link="https://github.com/shadowsocks/shadowsocks-libev/releases/download/${ver}/${shadowsocks_libev_ver}.tar.gz"
-    init_script_link="https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-libev-debian"
+    init_script_link="https://raw.githubusercontent.com/skyleve/shadowsocks_install/master/shadowsocks-libev-debian"
 }
 
 get_opsy(){
@@ -124,7 +123,6 @@ print_info(){
     clear
     echo "#############################################################"
     echo "# Install Shadowsocks-libev server for Debian or Ubuntu     #"
-    echo "# Intro:  https://teddysun.com/358.html                     #"
     echo "# Author: Teddysun <i@teddysun.com>                         #"
     echo "# Github: https://github.com/shadowsocks/shadowsocks-libev  #"
     echo "#############################################################"
