@@ -37,25 +37,25 @@ plain='\033[0m'
 cur_dir=$( pwd )
 software=(Shadowsocks-Python ShadowsocksR Shadowsocks-Go Shadowsocks-libev)
 
-libsodium_file="libsodium-1.0.17"
-libsodium_url="https://github.com/jedisct1/libsodium/releases/download/1.0.17/libsodium-1.0.17.tar.gz"
+libsodium_file="libsodium-1.0.18"
+libsodium_url="https://github.com/skyleve/shadowsocks_install/raw/master/libsodium-1.0.18.tar.gz"
 
-mbedtls_file="mbedtls-2.16.0"
-mbedtls_url="https://tls.mbed.org/download/mbedtls-2.16.0-gpl.tgz"
+mbedtls_file="mbedtls-2.16.1"
+mbedtls_url="https://github.com/skyleve/shadowsocks_install/raw/master/mbedtls-2.16.1-gpl.tgz"
 
 shadowsocks_python_file="shadowsocks-master"
 shadowsocks_python_url="https://github.com/shadowsocks/shadowsocks/archive/master.zip"
 shadowsocks_python_init="/etc/init.d/shadowsocks-python"
 shadowsocks_python_config="/etc/shadowsocks-python/config.json"
-shadowsocks_python_centos="https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks"
-shadowsocks_python_debian="https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-debian"
+shadowsocks_python_centos="https://raw.githubusercontent.com/skyleve/shadowsocks_install/master/shadowsocks"
+shadowsocks_python_debian="https://raw.githubusercontent.com/skyleve/shadowsocks_install/master/shadowsocks-debian"
 
 shadowsocks_r_file="shadowsocksr-3.2.2"
 shadowsocks_r_url="https://github.com/shadowsocksrr/shadowsocksr/archive/3.2.2.tar.gz"
 shadowsocks_r_init="/etc/init.d/shadowsocks-r"
 shadowsocks_r_config="/etc/shadowsocks-r/config.json"
-shadowsocks_r_centos="https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocksR"
-shadowsocks_r_debian="https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocksR-debian"
+shadowsocks_r_centos="https://raw.githubusercontent.com/skyleve/shadowsocks_install/master/shadowsocksR"
+shadowsocks_r_debian="https://raw.githubusercontent.com/skyleve/shadowsocks_install/master/shadowsocksR-debian"
 
 shadowsocks_go_file_64="shadowsocks-server-linux64-1.2.2"
 shadowsocks_go_url_64="https://dl.lamp.sh/shadowsocks/shadowsocks-server-linux64-1.2.2.gz"
@@ -63,13 +63,13 @@ shadowsocks_go_file_32="shadowsocks-server-linux32-1.2.2"
 shadowsocks_go_url_32="https://dl.lamp.sh/shadowsocks/shadowsocks-server-linux32-1.2.2.gz"
 shadowsocks_go_init="/etc/init.d/shadowsocks-go"
 shadowsocks_go_config="/etc/shadowsocks-go/config.json"
-shadowsocks_go_centos="https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-go"
-shadowsocks_go_debian="https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-go-debian"
+shadowsocks_go_centos="https://raw.githubusercontent.com/skyleve/shadowsocks_install/master/shadowsocks-go"
+shadowsocks_go_debian="https://raw.githubusercontent.com/skyleve/shadowsocks_install/master/shadowsocks-go-debian"
 
 shadowsocks_libev_init="/etc/init.d/shadowsocks-libev"
 shadowsocks_libev_config="/etc/shadowsocks-libev/config.json"
-shadowsocks_libev_centos="https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-libev"
-shadowsocks_libev_debian="https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-libev-debian"
+shadowsocks_libev_centos="https://raw.githubusercontent.com/skyleve/shadowsocks_install/master/shadowsocks-libev"
+shadowsocks_libev_debian="https://raw.githubusercontent.com/skyleve/shadowsocks_install/master/shadowsocks-libev-debian"
 
 # Stream Ciphers
 common_ciphers=(
@@ -297,7 +297,7 @@ get_ipv6(){
 }
 
 get_libev_ver(){
-    libev_ver=$(wget --no-check-certificate -qO- https://api.github.com/repos/shadowsocks/shadowsocks-libev/releases/latest | grep 'tag_name' | cut -d\" -f4)
+    libev_ver=$(wget --no-check-certificate -qO- https://api.github.com/repos/skyleve/shadowsocks-libev/releases/latest | grep 'tag_name' | cut -d\" -f4)
     [ -z ${libev_ver} ] && echo -e "[${red}Error${plain}] Get shadowsocks-libev latest version failed" && exit 1
 }
 
